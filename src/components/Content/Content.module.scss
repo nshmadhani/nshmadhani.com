@@ -1,0 +1,312 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.content {
+  max-width: $layout-post-single-width;
+  padding: 0 $layout-mobile-padding;
+  margin: 0 auto;
+
+  &__title, &__subtitle, &__date, &__guest-author {
+    max-width: $layout-post-width;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: $typographic-base-font-size * 2;
+    @include line-height(1.5);
+    @include margin-top(1);
+
+    &.no-subtitle {
+      font-weight: 600;
+      font-size: $typographic-base-font-size * 2.5;
+      @include line-height(2);
+    }
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    color: $typographic-light-font-color;
+    font-size: $typographic-base-font-size * 1.5;
+    @include line-height(1.125);
+    @include margin-top(0.2);
+  }
+
+  &__date {
+    @include margin-top(0.3);
+  }
+
+  &__spacer {
+    @include margin-bottom(0.75);
+  }
+
+  &__body {
+    p, li {
+      font-size: $typographic-base-font-size * 1.125;
+      @include line-height(1.125);
+    }
+
+    p {
+      @include margin-bottom(1);
+    }
+
+    & > * {
+      width: 100%;
+      max-width: $layout-post-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    hr {
+      width: 50%;
+      min-width: 200px;
+    }
+
+    video {
+      display: block;
+      @include margin-top(1.5);
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    blockquote {
+      border-left: 2px solid $color-gray;
+      margin: 0;
+      margin-left: -$layout-mobile-padding;
+      padding: 0 0 0 ($layout-mobile-padding - 2px);
+      font-style: italic;
+      font-size: $typographic-base-font-size;
+      font-weight: 300;
+
+      strong {
+        font-weight: 600;
+      }
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    iframe {
+      border: none;
+      outline: none;
+    }
+
+    figure {
+      @include margin-bottom(1.5);
+    }
+
+    table {
+      background-color: $color-gray-bg;
+      @include padding-equal(0.25);
+      border-spacing: 5px;
+
+      th {
+        border-bottom: 1px solid $color-primary;
+      }
+
+      td {
+        text-align: center;
+      }
+    }
+
+    code[class*='language-'] {
+      font-size: $typographic-base-font-size * 1;
+      color: $_color-base; // don't invert
+      font-style: normal;
+      padding: 3px 4px;
+    }
+
+    // stylelint-disable
+    // stylelint doesn't recognize :global() from css-modules
+    :global(.gatsby-highlight) {
+      margin-left: -$layout-mobile-padding;
+      margin-right: -$layout-mobile-padding;
+      width: unset;
+      max-width: unset;
+      overflow: auto;
+    }
+
+    :global(.gatsby-highlight pre[class*='language-']) {
+      @include margin-top(0);
+      @include margin-bottom(0);
+      @include line-height(0.8);
+      @include padding-equal(0.5);
+      padding-left: $layout-mobile-padding;
+      float: left;
+      min-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    :global(.gatsby-highlight code[class*='language-']) {
+      padding: 0;
+      font-size: $typographic-base-font-size * 0.9;
+    }
+
+    // From https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
+    :global(.gatsby-highlight-code-line) {
+      background-color: var(--color-highlight-code-line);
+      display: block;
+      margin-right: -1em;
+      margin-left: -$layout-mobile-padding;
+      padding-right: 1em;
+      padding-left: 0.75em;
+      border-left: 0.2em solid var(--color-highlight-code-line-border);
+    }
+
+    :global(.gatsby-code-header) {
+      margin-left: -$layout-mobile-padding;
+      @include margin-top(0.5);
+    }
+
+    :global(.gatsby-code-header) h5 {
+      margin: 0;
+      @include padding(0.1, 0.75, 0.1, 0.75);
+      display: inline-block;
+      background-color: rgb(245, 242, 240);
+      border-top-right-radius: 5px;
+      border-bottom: 1px solid $_color-gray-shadow; // don't invert
+    }
+
+    :global(.token.operator) {
+      background: initial;
+    }
+
+    :global(.checkmark) {
+      color: var(--color-secondary-green);
+      font-weight: bold;
+    }
+
+    :global(.emph-special) {
+      color: var(--color-emph-special);
+      font-style: italic;
+    }
+
+    :global(.with-shadow) {
+      box-shadow: 0 0 15px $color-gray-border;
+    }
+
+    :global(.katex-display) {
+      margin: 1em auto;
+    }
+
+    :global(.katex) {
+      font-size: $typographic-base-font-size * 1.25;
+      border-spacing: 0;
+    }
+
+    :global(a.no-underline) {
+      text-decoration: none;
+    }
+
+    :global(a.anchor) {
+      display: none;
+    }
+    // stylelint-enable
+
+    & img {
+      background-color: white;
+      width: initial;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .content {
+    &__body {
+      blockquote {
+        margin: 0 auto;
+        padding: 0 23px 0 25px;
+      }
+
+      // stylelint-disable
+      // stylelint doesn't recognize :global() from css-modules
+      :global(.gatsby-highlight) {
+        border-radius: 5px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: $layout-post-width;
+      }
+
+      & :global(.gatsby-highlight pre[class*='language-']) {
+        border-radius: 5px;
+        @include padding-equal(0.6);
+      }
+
+      & :global(.gatsby-highlight code[class*='language-']) {
+        font-size: $typographic-base-font-size * 1;
+      }
+
+      & :global(.gatsby-code-header) + :global(.gatsby-highlight),
+      & :global(.gatsby-code-header) + :global(.gatsby-highlight) pre[class*='language-'] {
+        border-top-left-radius: 0;
+      }
+
+      :global(.gatsby-code-header) {
+        margin-left: auto;
+      }
+
+      :global(.gatsby-code-header) h5 {
+        color: $_color-base; // don't invert
+        @include padding(0.1, 1, 0.1, 1);
+        border-top-left-radius: 5px;
+      }
+
+      :global(.spacing) {
+        @include padding(0.5, 0, 0.5, 0);
+      }
+
+      :global(a.anchor) {
+        display: initial;
+      }
+      
+      :global(a.anchor svg) {
+        fill: $color-base;
+      }
+      // stylelint-enable
+    }
+  }
+}
+
+@include breakpoint-md {
+  .content {
+    padding: 0;
+
+    &__title {
+      font-size: $typographic-base-font-size * 2.5;
+      @include line-height(2);
+      @include margin-top(1.5);
+
+      &.no-subtitle {
+        font-size: $typographic-base-font-size * 3.125;
+        @include line-height(2.5);
+      }
+    }
+
+    &__subtitle {
+      font-size: $typographic-base-font-size * 1.875;
+      @include line-height(1.5);
+    }
+
+    &__spacer {
+      @include margin-bottom(1);
+    }
+
+    &__body {
+      p, li {
+        font-size: $typographic-base-font-size * 1.25;
+        @include line-height(1.25);
+      }
+
+      p {
+        @include margin-bottom(1.125);
+      }
+    }
+  }
+}

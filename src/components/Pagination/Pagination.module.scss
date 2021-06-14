@@ -1,0 +1,89 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.pagination {
+  @include margin-top(2);
+  display: flex;
+  justify-content: center;
+
+  &__prev {
+    flex-grow: 1;
+    text-align: left;
+
+    &-link {
+      color: $color-primary;
+      font-size: 26px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: $color-secondary;
+      }
+
+      &--disable {
+        pointer-events: none;
+        color: $color-gray-shadow;
+      }
+    }
+  }
+
+  &__next {
+    flex-grow: 1;
+    text-align: right;
+
+    &-link {
+      color: $color-primary;
+      font-size: 26px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: $color-secondary;
+      }
+
+      &--disable {
+        pointer-events: none;
+        color: $color-gray-shadow;
+      }
+    }
+  }
+
+  &__prev, &__next {
+    display: none;
+  }
+
+  &__list-container {
+    @include margin(0, 0);
+
+    li {
+      display: inline;
+      @include margin(0, 0.15);
+
+      a {
+        font-weight: 600;
+        display: inline;
+        @include padding(0.25, 0.25);
+      }
+
+      a.selected {
+        color: var(--color-white);
+        background-color: $color-primary;
+        @include padding(0.25, 0.4);
+        border-radius: 3px;
+      }
+
+      p {
+        display: inline;
+        @include padding(0.25, 0);
+      }
+    }
+  }
+}
+
+@include breakpoint-md {
+  .pagination {
+    &__prev, &__next {
+      display: unset;
+    }
+  }
+}

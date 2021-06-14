@@ -1,0 +1,48 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.tags {
+  @include margin-bottom(0.5);
+
+  &__title {
+    font-size: $typographic-base-font-size;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &-title {
+      display: inline-block;
+      margin: 0 5px 0 0;
+    }
+
+    &-item {
+      display: inline-block;
+      margin: 5px;
+
+      &-link {
+        display: inline-block;
+        padding: 0 15px;
+        line-height: 32px;
+        border: 1px solid $color-gray-border;
+        text-decoration: none;
+        border-radius: 3px;
+        color: $color-base;
+
+        &:hover, &:focus {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .tags__list-item-link {
+    padding: 0 20px;
+    line-height: 35px;
+  }
+}

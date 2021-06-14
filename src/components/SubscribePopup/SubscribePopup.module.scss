@@ -1,0 +1,73 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.container {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+  position: fixed;
+  background-color: $color-gray-bg;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 15px $color-gray-shadow;
+  @include padding(0.3, 0.5);
+  @include transition(opacity);
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .title {
+    margin: 5px 5px 2px 0;
+  }
+
+  .description {
+    margin: 0;
+    @include margin-bottom(0.1);
+    font-size: $typographic-base-font-size * 0.85;
+    @include line-height(0.85);
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    color: var(--color-black);
+    padding: 8px;
+    margin: 0;
+    @include transition(text-shadow);
+
+    &:hover {
+      text-shadow: 0 0 3px $color-gray;
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .container {
+    width: 420px;
+    left: unset;
+    right: 12px;
+    bottom: 12px;
+    border-radius: 5px;
+    @include padding-equal(0.5);
+
+    .title {
+      margin: 5px 5px 5px 0;
+    }
+
+    .description {
+      @include margin-bottom(0.2);
+      font-size: $typographic-base-font-size * 0.9;
+      @include line-height(0.9);
+    }
+
+    .close {
+      top: 2px;
+      right: 2px;
+    }
+  }
+}

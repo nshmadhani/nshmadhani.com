@@ -1,0 +1,101 @@
+/**
+ * Variables
+ */
+
+// Colors
+$_color-base: #222;
+$_color-primary: #164BC5;
+$_color-secondary: #0F9640;
+$_color-primary-light: lighten($_color-primary, 12%);
+$_color-secondary-light: lighten($_color-secondary, 12%);
+$_color-gray-shadow: lighten($_color-base, 60%);
+
+:root {
+  --color-background: #FFF;
+  --color-base: #{$_color-base};
+  --color-primary: #{$_color-primary};
+  --color-secondary: #{$_color-secondary};
+  --color-secondary-green: #{$_color-secondary};
+  --color-white: #FFF;
+  --color-black: #000;
+
+  --color-gray: #{lighten($_color-base, 35%)};
+  --color-gray-shadow: #{$_color-gray-shadow};
+  --color-gray-light-shadow: #{lighten($_color-base, 70%)};
+  --color-gray-border: #{lighten($_color-base, 75%)};
+  --color-gray-bg: #{lighten($_color-base, 82%)};
+
+  --color-highlight-code-line: #{lighten($_color-primary, 50%)};
+  --color-highlight-code-line-border: #{$_color-primary};
+  --color-emph-special: #{darken($_color-secondary, 8%)};
+
+  background-color: var(--color-background);
+}
+
+:root.dark {
+  --color-background: #222;
+  --color-base: #eee;
+  --color-primary: #{$_color-secondary-light};
+  --color-secondary: #{$_color-primary-light};
+  --color-secondary-green: #{$_color-secondary-light};
+  --color-white: #000;
+  --color-black: #FFF;
+
+  --color-gray: #{invert(lighten($_color-base, 30%))};
+  --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
+  --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
+  --color-gray-border: #{invert(lighten($_color-base, 57%))};
+  --color-gray-bg: #{invert(lighten($_color-base, 80%))};
+
+  --color-highlight-code-line: #{lighten($_color-secondary, 55%)};
+  --color-highlight-code-line-border: #{$_color-secondary};
+  --color-emph-special: #{$_color-secondary};
+}
+
+$color-base: var(--color-base);
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+
+$color-white: var(--color-white);
+$color-gray: var(--color-gray);
+$color-gray-shadow: var(--color-gray-shadow);
+$color-gray-light-shadow: var(--color-gray-light-shadow);
+$color-gray-border: var(--color-gray-border);
+$color-gray-bg: var(--color-gray-bg);
+
+$color-hn: #ff6600;
+$color-facebook: #3b5998;
+$color-twitter: #1da1f2;
+$color-linkedin: #0077b5;
+$color-reddit: #ff4500;
+
+// Typographic
+$typographic-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+$typographic-root-font-size: 100;
+$typographic-base-font-size: 16px;
+$typographic-small-font-size: 14px;
+
+$typographic-base-line-height: 1.625;
+
+$typographic-base-font-color: $color-base;
+$typographic-light-font-color: $color-gray;
+$typographic-link-p-font-color: $color-primary;
+$typographic-link-s-font-color: $color-secondary;
+
+$typographic-leading: round(16 * ($typographic-root-font-size / 100) * $typographic-base-line-height);
+
+// Buttons
+$button-height: 35px;
+
+// Layout
+$layout-post-single-width: 945px;
+$layout-post-width: $layout-post-single-width - 245px;
+
+$layout-width: 1070px;
+// Should match MOBILE_WIDTH_THRESHOLD in PlatformContext
+$layout-breakpoint-sm: 685px;
+$layout-breakpoint-md: 960px;
+$layout-breakpoint-lg: 1100px;
+
+$layout-mobile-padding: 15px;

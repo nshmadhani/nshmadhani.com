@@ -1,0 +1,68 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.author {
+  &__main-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    border-radius: 50%;
+    background-clip: padding-box;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    @include margin(.5, 0, .5, .3);
+
+    & h1 {
+      font-size: $typographic-base-font-size * 1.5;
+      font-weight: 600;
+      @include line-height(1.5);
+      @include margin(0, 0, 0, 0);
+    }
+
+    &-link {
+      color: $color-base;
+
+      &:hover, &:focus {
+        color: $color-base;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: $color-gray;
+    @include line-height(1);
+    @include margin-bottom(0.4);
+  }
+}
+
+@include breakpoint-sm {
+  .author {
+    &__main-section {
+      display: block;
+    }
+
+    &__photo {
+      width: 75px;
+      height: 75px;
+    }
+
+    &__title {
+      margin-left: 0;
+    }
+
+    &__subtitle {
+      @include margin-bottom(1);
+    }
+  }
+}

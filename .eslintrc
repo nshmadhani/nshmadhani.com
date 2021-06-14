@@ -1,0 +1,82 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest/globals": true
+    },
+    "plugins": [
+        "react",
+        "jest",
+        "jsx-a11y",
+        "import",
+        "flowtype",
+        "simple-import-sort"
+    ],
+    "globals": {
+        "graphql": true
+    },
+    "rules": {
+      "simple-import-sort/sort": "error",
+      "flowtype/define-flow-type": 1,
+      "comma-dangle": 0,
+      "global-require": 0,
+      "class-methods-use-this": 0,
+      "arrow-body-style": [
+        2,
+        "as-needed"
+      ],
+      "arrow-parens": [
+        "off",
+        "as-needed"
+      ],
+      "consistent-return": 0,
+      "indent": 0, // use format script
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "import/prefer-default-export": 0,
+      "object-curly-newline": ["error", {
+        "consistent": true
+      }],
+      "no-debugger": 0,
+      "dot-notation": 0,
+      "no-console": 0,
+      "no-confusing-arrow": 0,
+      "no-nested-ternary": 0,
+      "new-cap": 0,
+      "strict": 0,
+      "no-param-reassign": [
+        "error",
+        {
+          "props": false
+        }
+      ],
+      "lines-between-class-members": 0,
+      "no-underscore-dangle": 0,
+      "no-use-before-define": 0,
+      "no-plusplus": 0,
+      "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
+      "eol-last": 0,
+      "no-shadow": 0,
+      "quotes": [
+        2,
+        "single",
+        { "avoidEscape": true }
+      ],
+      "implicit-arrow-linebreak": 0,
+      "function-paren-newline": [2, "multiline-arguments"],
+      "jsx-quotes": [
+        0,
+        "prefer-single"
+      ],
+      "react/jsx-no-undef": 1,
+      "react/jsx-uses-react": 1,
+      "react/jsx-uses-vars": 1
+    }
+}

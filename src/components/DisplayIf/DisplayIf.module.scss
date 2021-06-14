@@ -1,0 +1,14 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+@include breakpoint-max-sm {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@include breakpoint-sm {
+  &.mobile-only {
+    display: none !important;
+  }
+}

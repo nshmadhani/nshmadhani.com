@@ -1,0 +1,51 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.post {
+  &__footer, &__comments, &__viewSource {
+    max-width: $layout-post-width;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__comments {
+    @include margin-top(1);
+    background-color: white;
+    border-top: 8px solid white;
+  }
+
+  &__authorContainer {
+    border-top: 1px solid $color-gray-border;
+    border-bottom: 1px solid $color-gray-border;
+  }
+
+  &__viewSource p {
+    @include margin-top(0.5);
+    @include margin-bottom(0.5);
+  }
+}
+
+@include breakpoint-sm {
+  .post__subscribeForm {
+    max-width: $layout-post-width;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .post__comments {
+    @include margin-top(2);
+    border: 8px solid white;
+  }
+}
+
+@include breakpoint-md {
+  .post {
+    &__footer {
+      padding: 0;
+    }
+
+    &__comments {
+      padding: 0;
+    }
+  }
+}
