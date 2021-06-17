@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comments renders correctly 1`] = `
-<div
-  style={
-    Object {
-      "paddingBottom": "320px",
-    }
-  }
-/>
-`;
+exports[`Comments renders correctly 1`] = `null`;

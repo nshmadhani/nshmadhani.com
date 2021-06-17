@@ -1,10 +1,19 @@
-import { Link, withPrefix } from 'gatsby';
+// @flow strict
 import React from 'react';
-
-import DarkModeToggle from '../../DarkModeToggle';
+import { withPrefix, Link } from 'gatsby';
 import styles from './Author.module.scss';
+import DarkModeToggle from '../..//DarkModeToggle'
 
-const Author = ({ author }) => (
+type Props = {
+  author: {
+    name: string,
+    bio: string,
+    photo: string
+  },
+  isIndex: ?boolean
+};
+
+const Author = ({ author, isIndex}) => (
   <div className={styles['author']}>
     <div className={styles['author__main-section']}>
       <Link to="/">

@@ -1,59 +1,38 @@
-// @flow
-import { graphql } from 'gatsby';
+// @flow strict
 import React from 'react';
-import Helmet from 'react-helmet';
-
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import MovableSidebarContent from '../components/MovableSidebarContent';
-import Page from '../components/Page';
 import Sidebar from '../components/Sidebar';
-import TemplateWrapper from '../components/TemplateWrapper';
+import Page from '../components/Page';
+import { useSiteMetadata } from '../hooks';
+import type { MarkdownRemark } from '../types';
 
-type Props = {|
-  +data: Object,
-|};
+type Props = {
+  data: {
+    markdownRemark: MarkdownRemark
+  }
+};
 
 const PageTemplate = ({ data }: Props) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
-
-  const {
-    title: pageTitle,
-    description: pageDescription,
-    hideSubscribe,
-    hideAd,
-    noIndex,
-  } = data.markdownRemark.frontmatter;
-
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { html: pageBody } = data.markdownRemark;
-
-  const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
+  const { frontmatter } = data.markdownRemark;
+  const { title: pageTitle, description: pageDescription = '', socialImage } = frontmatter;
+  const metaDescription = pageDescription || siteSubtitle;
+  //const socialImageUrl = socialImage?.publicURL;
 
   return (
-    <TemplateWrapper>
-      <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
-        {noIndex && (
-          <Helmet>
-            <meta name="robots" content="noindex" />
-          </Helmet>
-        )}
-        <Sidebar hideSubscribeForm={hideSubscribe} hideAd={hideAd} />
-        <Page title={pageTitle}>
-          <div dangerouslySetInnerHTML={{ __html: pageBody }} />
-        </Page>
-      </Layout>
-      <MovableSidebarContent mobile />
-    </TemplateWrapper>
+    <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription} socialImage={''} >
+      <Sidebar />
+      <Page title={pageTitle}>
+        <div dangerouslySetInnerHTML={{ __html: pageBody }} />
+      </Page>
+    </Layout>
   );
 };
 
 export const query = graphql`
   query PageBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
@@ -61,9 +40,9 @@ export const query = graphql`
         title
         date
         description
-        hideSubscribe
-        hideAd
-        noIndex
+        socialImage {
+          publicURL
+        }
       }
     }
   }

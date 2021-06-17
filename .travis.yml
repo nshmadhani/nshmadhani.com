@@ -3,17 +3,12 @@ node_js:
   - '10'
 install:
   - npm install -g codecov
-  - npm install -g prettier
 script:
-  - npm install
-  - npm run lint
-  - npm run test:coverage --runInBand --no-cache
-  - npm test --runInBand --no-cache
+  - yarn install
+  - yarn lint
+  - yarn test:coverage --runInBand --no-cache
+  - yarn test --runInBand --no-cache
   - codecov
 cache:
   directories:
     - node_modules
-notifications:
-  email:
-    on_success: never
-    on_failure: always

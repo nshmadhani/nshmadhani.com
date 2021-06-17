@@ -2,62 +2,46 @@
 
 const path = require('path');
 const _ = require('lodash');
+const createCategoriesPages = require('./pagination/create-categories-pages.js');
 const createTagsPages = require('./pagination/create-tags-pages.js');
 const createPostsPages = require('./pagination/create-posts-pages.js');
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  // Subscriber Thank You
+  // 404
   createPage({
-    path: '/subscriber-thank-you/',
-    component: path.resolve('./src/templates/subscriber-thank-you-template.js'),
-  });
-
-  // Subscribe
-  createPage({
-    path: '/subscribe/',
-    component: path.resolve('./src/templates/subscribe-template.js'),
-  });
-
-  // Update Subscription
-  createPage({
-    path: '/update-subscription/',
-    component: path.resolve('./src/templates/subscribe-template.js'),
-    context: { updateSubscription: true },
+    path: '/404',
+    component: path.resolve('./src/templates/not-found-template.js')
   });
 
   // Tags list
   createPage({
-    path: '/tags/',
-    component: path.resolve('./src/templates/tags-list-template.js'),
+    path: '/tags',
+    component: path.resolve('./src/templates/tags-list-template.js')
   });
 
-  // Archive
+  // Categories list
   createPage({
-    path: '/archive/',
-    component: path.resolve('./src/templates/archive-template.js'),
+    path: '/categories',
+    component: path.resolve('./src/templates/categories-list-template.js')
   });
-
-  // More Posts
   createPage({
-    path: '/posts/',
-    component: path.resolve('./src/templates/guest-posts-template.js'),
+    path: '/blog',
+    component: path.resolve('./src/templates/blog-template.js')
   });
+  
 
   // Posts and pages from markdown
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        filter: { frontmatter: { draft: { ne: true } } }
+      ) {
         edges {
           node {
             frontmatter {
               template
-              usesKatex
-              prev
-              next
-              seriesSlugs
-              frontSlug
             }
             fields {
               slug
@@ -70,30 +54,29 @@ const createPages = async ({ graphql, actions }) => {
 
   const { edges } = result.data.allMarkdownRemark;
 
-  _.each(edges, edge => {
-    // Skip -end files, which are appended on to their corresponding primary files.
-    const frontSlug = _.get(edge, 'node.frontmatter.frontSlug');
-    if (frontSlug) {
-      return;
-    }
+  _.each(edges, (edge) => {
 
-    const { slug } = edge.node.fields;
-    const prev = _.get(edge, 'node.frontmatter.prev');
-    const next = _.get(edge, 'node.frontmatter.next');
-    const seriesSlugs = _.get(edge, 'node.frontmatter.seriesSlugs') || [];
-    let template = _.get(edge, 'node.frontmatter.template');
-    if (_.get(edge, 'node.frontmatter.usesKatex')) {
-      template = 'math-post';
+
+
+    if (_.get(edge, 'node.frontmatter.template') === 'page') {
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve('./src/templates/page-template.js'),
+        context: { slug: edge.node.fields.slug }
+      });
+      
+    } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve('./src/templates/post-template.js'),
+        context: { slug: edge.node.fields.slug }
+      });
     }
-    createPage({
-      path: slug,
-      component: path.resolve(`./src/templates/${template}-template.js`),
-      context: { slug, prev, next, seriesSlugs },
-    });
   });
 
   // Feeds
   await createTagsPages(graphql, actions);
+  await createCategoriesPages(graphql, actions);
   await createPostsPages(graphql, actions);
 };
 

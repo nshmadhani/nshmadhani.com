@@ -1,9 +1,16 @@
-// @flow
+// @flow strict
 import React from 'react';
-
 import styles from './Icon.module.scss';
 
-const Icon = ({ name, icon }: { name: string, icon: { viewBox: string, path: string } }) => (
+type Props = {
+  name: string,
+  icon: {
+    viewBox?: string,
+    path?: string
+  }
+};
+
+const Icon = ({ name, icon }: Props) => (
   <svg className={styles['icon']} viewBox={icon.viewBox}>
     <title>{name}</title>
     <path d={icon.path} />

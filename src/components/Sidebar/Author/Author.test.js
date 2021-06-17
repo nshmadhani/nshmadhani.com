@@ -1,15 +1,16 @@
+// @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import Author from './Author';
 
 describe('Author', () => {
   const props = {
     author: {
       name: 'test',
-      photo: '/photo2.png',
-      bio: 'test',
+      photo: '/photo.jpg',
+      bio: 'test'
     },
+    isIndex: false
   };
 
   it('renders correctly', () => {

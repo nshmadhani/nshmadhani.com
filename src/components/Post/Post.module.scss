@@ -4,8 +4,8 @@
 .post {
   &__footer, &__comments, &__viewSource {
     max-width: $layout-post-width;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin: 0 auto ;
+    padding: 15px;
   }
 
   &__comments {

@@ -11,9 +11,9 @@
 
     &-title {
       font-size: $typographic-base-font-size * 1.6875;
-      @include line-height(1.25);
+      @include line-height(1.5);
       @include margin-top(0);
-      @include margin-bottom(0.25);
+      @include margin-bottom(.5);
 
       &-link {
         color: $color-base;
@@ -23,18 +23,18 @@
           color: $color-base;
           border-bottom: 1px solid $color-base;
         }
+
       }
+
     }
 
     &-description {
       font-size: $typographic-base-font-size;
       @include line-height(1);
-      @include margin-bottom(.25);
+      @include margin-bottom(.75);
     }
 
     &-meta {
-      @include margin-bottom(0);
-
       &-time {
         font-size: $typographic-small-font-size;
         color: $color-base;
@@ -57,15 +57,16 @@
           &:focus {
             color: $color-primary;
           }
+
         }
+
       }
+
     }
 
     &-readmore {
-      color: $color-primary;
       font-size: $typographic-base-font-size;
-      font-weight: bold;
-      padding: 5px 0;
+      color: $color-primary;
 
       &:hover,
       &:focus {

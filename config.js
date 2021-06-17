@@ -1,43 +1,50 @@
 'use strict';
 
 module.exports = {
-  url: 'https://victorzhou.com',
-  title: 'victorzhou.com',
-  subtitle:
-    'Software Engineer. I blog about web development, machine learning, and more topics.',
-  copyright: '© Victor Zhou 2021',
-  postsPerPage: 8,
-  googleAnalyticsId: 'UA-58664433-1',
+  url: 'https://lumen.netlify.com',
+  pathPrefix: '/',
+  title: 'Blog by John Doe',
+  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  copyright: '© All rights reserved.',
+  disqusShortname: '',
+  postsPerPage: 4,
+  googleAnalyticsId: 'UA-73379983-2',
+  useKatex: false,
   menu: [
     {
       label: 'Blog',
-      path: '/',
+      path: '/blog'
     },
     {
-      label: 'About',
-      path: '/about/',
+      label: 'About me',
+      path: '/pages/about'
     },
     {
-      label: 'Tags',
-      path: '/tags/',
-    },
-    {
-      label: 'More Posts',
-      path: '/posts/',
-    },
+      label: 'Contact me',
+      path: '/pages/contacts'
+    }
   ],
   author: {
-    name: 'Victor Zhou',
-    photo: '/photo2.png',
-    photoLarge: '/photo2-large.png',
-    bio:
-      'Software Engineer. I blog about <a href="/tag/web-development/">web development</a>, <a href="/tag/machine-learning/">machine learning</a>, and <a href="/tags/">more topics</a>.',
+    name: 'John Doe',
+    photo: '/photo.jpg',
+    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
     contacts: {
-      email: 'vzhou842@gmail.com',
-      twitter: 'victorczhou',
-      github: 'vzhou842',
-      rss: '/rss.xml',
-    },
-  },
-  previewImage: '/preview.png'
+      email: '',
+      facebook: '#',
+      telegram: '#',
+      twitter: '#',
+      github: '#',
+      rss: '',
+      vkontakte: '',
+      linkedin: '#',
+      instagram: '#',
+      line: '',
+      gitlab: '',
+      weibo: '',
+      codepen: '',
+      youtube: '',
+      soundcloud: '',
+      medium: '',
+    }
+  }
 };

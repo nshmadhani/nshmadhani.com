@@ -1,37 +1,28 @@
-// @flow
-import * as React from 'react';
+// @flow strict
+import React from 'react';
+import ReactDisqusComments from 'react-disqus-comments';
+import { useSiteMetadata } from '../../../hooks';
 
-import ReactCommento from './ReactCommento';
+type Props = {
+  postTitle: string,
+  postSlug: string
+};
 
-type State = {|
-  +show: boolean,
-|};
+const Comments = ({ postTitle, postSlug }: Props) => {
+  const { url, disqusShortname } = useSiteMetadata();
 
-export default class Comments extends React.PureComponent<{||}, State> {
-  state = { show: false };
-
-  timeout: ?TimeoutID;
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-    this.timeout = setTimeout(this.onScroll, 5000);
+  if (!disqusShortname) {
+    return null;
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    clearTimeout(this.timeout);
-  }
+  return (
+    <ReactDisqusComments
+      shortname={disqusShortname}
+      identifier={postTitle}
+      title={postTitle}
+      url={url + postSlug}
+    />
+  );
+};
 
-  onScroll = () => {
-    this.setState({ show: true });
-    window.removeEventListener('scroll', this.onScroll);
-  };
-
-  render() {
-    if (!this.state.show) {
-      return <div style={{ paddingBottom: '320px' }} />;
-    }
-
-    return <ReactCommento />;
-  }
-}
+export default Comments;

@@ -1,27 +1,62 @@
+// @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import Feed from './Feed';
-
-const edge = s => ({
-  node: {
-    fields: {
-      slug: s,
-      categorySlug: s,
-      dateFormatted: 'March 14, 2019',
-    },
-    frontmatter: {
-      date: new Date('2019-03-14T12:00:00.000Z'),
-      description: s,
-      category: s,
-      title: s,
-    },
-  },
-});
 
 describe('Feed', () => {
   const props = {
-    edges: [edge('test_0'), edge('test_1')],
+    edges: [
+      {
+        node: {
+          fields: {
+            slug: '/test_0',
+            categorySlug: '/test_0',
+            tagSlugs: [
+              '/test-1',
+              '/test-2'
+            ]
+          },
+          frontmatter: {
+            date: '2016-09-01',
+            description: 'test_0',
+            category: 'test_0',
+            tags: [
+              'test-1',
+              'test-2'
+            ],
+            title: 'test_0'
+          },
+          id: 'test-123',
+          html: '<p>test</p>'
+
+        }
+      },
+      {
+        node: {
+          fields: {
+            slug: '/test_1',
+            categorySlug: '/test_1',
+            tagSlugs: [
+              '/test-1',
+              '/test-2'
+            ]
+          },
+          frontmatter: {
+            date: '2016-09-01',
+            description: 'test_1',
+            category: 'test_1',
+            tags: [
+              'test-1',
+              'test-2'
+            ],
+            title: 'test_1'
+          },
+          id: 'test-321',
+          html: '<p>test</p>'
+
+        }
+      }
+    ]
   };
 
   it('renders correctly', () => {
