@@ -59,11 +59,14 @@ const createPages = async ({ graphql, actions }) => {
 
 
     if (_.get(edge, 'node.frontmatter.template') === 'page') {
+      
+      //Remove conition when you have proper indexpage
       createPage({
-        path: edge.node.fields.slug,
+        path: edge.node.fields.slug === '/pages/about/' ? "/" : edge.node.fields.slug,
         component: path.resolve('./src/templates/page-template.js'),
         context: { slug: edge.node.fields.slug }
       });
+
       
     } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
       createPage({
