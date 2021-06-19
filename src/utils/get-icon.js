@@ -56,6 +56,10 @@ const getIcon = (name: string) => {
     case 'menu':
       icon = ICONS.MENU;
       break;
+    case 'star':
+      icon = ICONS.STAR;
+      break;
+        
     default:
       icon = {};
       break;

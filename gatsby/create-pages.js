@@ -26,6 +26,12 @@ const createPages = async ({ graphql, actions }) => {
     path: '/categories',
     component: path.resolve('./src/templates/categories-list-template.js')
   });
+
+  createPage({
+    path: '/home',
+    component: path.resolve('./src/templates/index-template.js')
+  });
+  
   createPage({
     path: '/blog',
     component: path.resolve('./src/templates/blog-template.js')

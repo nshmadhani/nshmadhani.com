@@ -44,6 +44,18 @@ module.exports = {
       }
     },
     {
+			resolve: "gatsby-source-graphql",
+			options: {
+				typeName: "GitHub",
+				fieldName: "github",
+				url: "https://api.github.com/graphql",
+				headers: {
+					Authorization: `bearer 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`,
+				},
+				fetchOptions: {},
+			},
+		},
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
