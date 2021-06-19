@@ -7,15 +7,9 @@ import Post from '../components/Post';
 import NavHeader from '../components/NavHeader'
 
 import { useSiteMetadata } from '../hooks';
-import type { MarkdownRemark } from '../types';
 
-type Props = {
-  data: {
-    markdownRemark: MarkdownRemark
-  }
-};
 
-const PostTemplate = ({ data }: Props) => {
+const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { frontmatter } = data.markdownRemark;
   const { title: postTitle, description: postDescription = '', socialImage } = frontmatter;

@@ -2,24 +2,19 @@
 import React from 'react';
 import { getContactHref, getIcon } from '../../../utils';
 import Icon from '../../Icon';
-import styles from './Contacts.module.scss';
+import * as styles  from './Contacts.module.scss';
 
-type Props = {
-  contacts: {
-    [string]: string,
-  },
-};
 
-const Contacts = ({ contacts }: Props) => (
-  <div className={styles['contacts']}>
-    <ul className={styles['contacts__list']}>
 
-      {/* {Object.keys(contacts).map((name) => ({contacts[name]}) )} */}
+const Contacts = ({ contacts }) => (
+  <div className={styles.contacts}>
+    <ul className={styles.contacts__list}>
+
 
       {Object.keys(contacts).map((name) => (contacts[name] == false ? null : (
-        <li className={styles['contacts__list-item']} key={name}>
+        <li className={styles.contacts__list_item} key={name}>
             <a
-              className={styles['contacts__list-item-link']}
+              className={styles.contacts__list_item_link}
               href={getContactHref(name, contacts[name])}
               rel="noopener noreferrer"
               target="_blank"

@@ -49,7 +49,6 @@ const Projects = () => {
   );
   return (
     <Wrapper>
-      <h2>Projects</h2>
       <Grid>
         {edges.map(({ node }) => (
           <Item key={node.id} as="a" href={node.url} target="_blank" rel="noopener noreferrer">

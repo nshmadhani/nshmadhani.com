@@ -11,7 +11,7 @@
     align-items: center;
     flex-grow: 1;
 
-    &-photo {
+    &_photo {
       flex-shrink: 0;
 
       img {
@@ -19,13 +19,13 @@
       }
     }
 
-    &-right {
+    &_right {
       margin: 0 0 0 10px;
 
-      &-name {
+      &_name {
         margin: 0;
 
-        &-link {
+        &_link {
           color: $color-base;
 
           &:hover {
@@ -35,7 +35,7 @@
         }
       }
 
-      &-bio {
+      &_bio {
         margin: 0;
       }
     }

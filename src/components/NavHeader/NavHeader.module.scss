@@ -24,11 +24,11 @@
     justify-content: center;
     flex-grow: 1;
 
-    &-photo img {
+    &_photo img {
       border-radius: 50%;
     }
 
-    &-name {
+    &_name {
       margin: 0 0 0 10px;
 
       &-link {
@@ -87,7 +87,7 @@
   right: 0;
 }
 
-.dark-mode-toggle {
+.dark_mode_toggle {
   display: flex;
   margin: 0 3%;
 

@@ -8,7 +8,7 @@ import DarkModeToggle from '../DarkModeToggle';
 import DisplayIf from '../DisplayIf';
 import Icon from '../Icon';
 import Menu from '../Menu';
-import styles from './NavHeader.module.scss';
+import * as styles  from './NavHeader.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -22,19 +22,19 @@ function NavHeader() {
       }}
     >
       <div className={cx({ header: true, 'no-shadow': menuShown })}>
-        <DisplayIf desktop className={styles['header__left']}>
+        <DisplayIf desktop className={styles.header__left}>
           <Author />
         </DisplayIf>
-        <DisplayIf mobile className={`${styles['header__left']} ${styles['mobile']}`}>
+        <DisplayIf mobile className={`${styles.header__left} ${styles.mobile}`}>
           <Author small />
         </DisplayIf>
-        <DisplayIf desktop className={styles['header__right']}>
+        <DisplayIf desktop className={styles.header__right}>
           <Menu horizontal bold />
-          <div className={styles['dark-mode-toggle']}>
+          <div className={styles.dark_mode_toggle}>
             <DarkModeToggle />
           </div>
         </DisplayIf>
-        <DisplayIf mobile className={`${styles['dark-mode-toggle']} ${styles['mobile']}`}>
+        <DisplayIf mobile className={`${styles.dark_mode_toggle} ${styles.mobile}`}>
           <DarkModeToggle />
         </DisplayIf>
         <DisplayIf mobile>
@@ -49,7 +49,7 @@ function NavHeader() {
         </DisplayIf>
       </div>
       {menuShown && (
-        <DisplayIf mobile className={styles['popup']}>
+        <DisplayIf mobile className={styles.popup}>
           <Menu bold noMargin />
         </DisplayIf>
       )}

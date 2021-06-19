@@ -3,18 +3,13 @@ import classnames from 'classnames/bind';
 import * as React from 'react';
 
 import PlatformContext from '../PlatformContext';
-import styles from './DisplayIf.module.scss';
+import * as styles  from './DisplayIf.module.scss';
 
 const cx = classnames.bind(styles);
 
-type Props = {|
-  +children: React.Node,
-  +className?: string,
-  +mobile?: boolean,
-  +desktop?: boolean,
-|};
+;
 
-const DisplayIf = ({ children, className, mobile, desktop }: Props) => (
+const DisplayIf = ({ children, className, mobile, desktop }) => (
   // Use PlatformContext's default value for the threshold prop because it matches the CSS.
   <PlatformContext
     render={isMobile =>

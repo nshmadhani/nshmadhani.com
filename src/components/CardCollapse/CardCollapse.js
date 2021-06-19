@@ -1,7 +1,7 @@
 import React from 'react'
 import Collapsible from 'react-collapsible'
 
-import styles from './CardCollapse.module.scss'
+import * as styles  from './CardCollapse.module.scss'
 
 const CardCollapse = ({trigger,children}) => {
   return (

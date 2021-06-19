@@ -25,8 +25,7 @@ const DarkModeToggle = () => {
 
   const [checked, setChecked] = useState(getTheme() === 'dark');
 
-  const onChange = useCallback(
-    (e: SyntheticInputEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e) => {
       const isChecked = e.target.checked;
       setChecked(isChecked);
       setPreferredTheme(isChecked ? 'dark' : 'light');

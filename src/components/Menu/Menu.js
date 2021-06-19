@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import React from 'react';
 
-import styles from './Menu.module.scss';
+import * as styles  from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -17,20 +17,20 @@ export const PureMenu = ({ data, horizontal, bold, noMargin, location }) => {
         'no-margin': noMargin,
       })}
     >
-      <ul className={styles['menu__list']}>
+      <ul className={styles.menu__list}>
         {menu.map(item => (
-          <li className={styles['menu__list-item']} key={item.path}>
+          <li className={styles.menu__lis_item} key={item.path}>
             <Link
               to={item.path}
               className={cx({
-                'menu__list-item-link': true,
+                'menu__list_item_link': true,
                 bold,
-                'menu__list-item-link--active':
+                'menu__list_item_link__active':
                   (item.path === '/' &&
                     (pathname.startsWith('/top/') || pathname.startsWith('/page/'))) ||
                   (item.path === '/tags/' && pathname.startsWith('/tag/')),
               })}
-              activeClassName={styles['menu__list-item-link--active']}
+              activeClassName={styles.menu__list_item_link__active}
               partiallyActive={item.path !== '/'}
             >
               {item.label}

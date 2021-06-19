@@ -2,7 +2,7 @@
 @import '../../../assets/scss/mixins';
 
 .author {
-  &__main-section {
+  &__main_section {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,7 +30,7 @@
       @include margin(0, 0, 0, 0);
     }
 
-    &-link {
+    &__link {
       color: $color-base;
 
       &:hover, &:focus {
@@ -48,7 +48,7 @@
 
 @include breakpoint-sm {
   .author {
-    &__main-section {
+    &__main_section {
       display: block;
     }
 

@@ -6,21 +6,13 @@ import Copyright from '../Copyright';
 import DisplayIf from '../../DisplayIf';
 
 
-type Props = {
-  +mobile?: boolean,
-  +desktop?: boolean,
-  author: Object,
-  copyright?: String,
-};
-
-
 
 export const MovableSidebarContent = ({
   mobile,
   desktop,
   author,
   copyright
-}: PureProps) => {
+}) => {
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
       <Contacts contacts={author.contacts} />

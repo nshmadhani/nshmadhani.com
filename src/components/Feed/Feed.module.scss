@@ -9,13 +9,13 @@
       @include margin-bottom(.5);
     }
 
-    &-title {
+    &_title {
       font-size: $typographic-base-font-size * 1.6875;
       @include line-height(1.5);
       @include margin-top(0);
       @include margin-bottom(.5);
 
-      &-link {
+      &_link {
         color: $color-base;
 
         &:hover,
@@ -28,26 +28,26 @@
 
     }
 
-    &-description {
+    &_description {
       font-size: $typographic-base-font-size;
       @include line-height(1);
       @include margin-bottom(.75);
     }
 
-    &-meta {
-      &-time {
+    &_meta {
+      &_time {
         font-size: $typographic-small-font-size;
         color: $color-base;
         font-weight: 600;
         text-transform: uppercase;
       }
 
-      &-divider {
+      &_divider {
         margin: 0 5px;
       }
 
-      &-category {
-        &-link {
+      &_category {
+        &_link {
           font-size: $typographic-small-font-size;
           color: $color-secondary;
           font-weight: 600;
@@ -64,7 +64,7 @@
 
     }
 
-    &-readmore {
+    &_readmore {
       font-size: $typographic-base-font-size;
       color: $color-primary;
 

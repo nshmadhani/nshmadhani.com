@@ -1,15 +1,15 @@
 import { graphql, Link, StaticQuery, withPrefix } from 'gatsby';
 import React from 'react';
 
-import styles from './Author.module.scss';
+import * as styles  from './Author.module.scss';
 
 export const PureAuthor = ({ author, showBio, showTwitter, small }) => {
   const photoSize = showBio ? 60 : small ? 40 : 48;
 
   return (
-    <div className={styles['author']}>
-      <div className={styles['author__header']}>
-        <Link to="/" className={styles['author__header-photo']}>
+    <div className={styles.author}>
+      <div className={styles.author__header}>
+        <Link to="/" className={styles.author__header_photo}>
           <img
             src={withPrefix(author.photo)}
             width={photoSize}
@@ -17,9 +17,9 @@ export const PureAuthor = ({ author, showBio, showTwitter, small }) => {
             alt={author.name}
           />
         </Link>
-        <div className={styles['author__header-right']}>
-          <h4 className={styles['author__header-right-name']}>
-            <Link className={styles['author__header-right-name-link']} to="/" rel="author">
+        <div className={styles.author__header_right}>
+          <h4 className={styles.author__header_right_name}>
+            <Link className={styles.author__header_right_name_link} to="/" rel="author">
               {author.name}
             </Link>
             {showTwitter && ' '}
@@ -36,7 +36,7 @@ export const PureAuthor = ({ author, showBio, showTwitter, small }) => {
           </h4>
           {showBio && (
             <p
-              className={styles['author__header-right-bio']}
+              className={styles.author__header_right_bio}
               dangerouslySetInnerHTML={{ __html: author.bio }}
             />
           )}
