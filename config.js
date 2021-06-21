@@ -41,11 +41,11 @@ module.exports = {
     },
     {
       label: 'Portfolio',
-      path: '/pages/porfolio'
+      path: '/projects'
     },
     {
       label: 'Resume',
-      path: ' '
+      path: 'https://drive.google.com/file/d/1vVjf81OVC6C7QpHjo6YLjAGWtBEmwSND/view?usp=sharing'
     },
     {
       label: 'Blog',

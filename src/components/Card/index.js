@@ -1,14 +1,27 @@
+import React from 'react'
 
-import styled from 'styled-components';
 
-export const Card = styled.div`
-  padding: 1rem;
-  background: ${({ theme }) => (theme === 'light' ? '#fff' : '#181717')};
-  height: 100%;
-`;
+import * as styles from './Card.module.scss'
 
-export const TitleWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
+
+const Card = ({children}) => {
+  return (
+    <div className={styles.card}>
+      {children}
+    </div>
+  )
+};
+
+const TitleWrap = ({children}) => {
+  return (
+    <div className={styles.titlewrap}>
+      {children}
+    </div>
+  )
+};
+
+
+export {
+  Card,
+  TitleWrap
+}

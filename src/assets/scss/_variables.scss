@@ -10,6 +10,9 @@ $_color-primary-light: lighten($_color-primary, 12%);
 $_color-secondary-light: lighten($_color-secondary, 12%);
 $_color-gray-shadow: lighten($_color-base, 60%);
 
+$_color-card-bg: black;
+
+
 :root {
   --color-background: #FFF;
   --color-base: #{$_color-base};
@@ -30,6 +33,9 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-emph-special: #{darken($_color-secondary, 8%)};
 
   background-color: var(--color-background);
+
+  --color_card-bg: #fff;
+
 }
 
 :root.dark {
@@ -50,6 +56,9 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-highlight-code-line: #{lighten($_color-secondary, 55%)};
   --color-highlight-code-line-border: #{$_color-secondary};
   --color-emph-special: #{$_color-secondary};
+
+  --color-card-bg: #181718;
+
 }
 
 $color-base: var(--color-base);
@@ -62,6 +71,9 @@ $color-gray-shadow: var(--color-gray-shadow);
 $color-gray-light-shadow: var(--color-gray-light-shadow);
 $color-gray-border: var(--color-gray-border);
 $color-gray-bg: var(--color-gray-bg);
+
+$color-card-bg: var(--color-card-bg);
+
 
 $color-hn: #ff6600;
 $color-facebook: #3b5998;

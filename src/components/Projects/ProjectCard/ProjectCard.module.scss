@@ -1,0 +1,38 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+
+.content {
+    padding: 1rem 0;
+    min-height: 160px;
+     h4 {
+        margin-top: 0;
+     }
+    p {
+        margin-top: 0;
+    }  
+}
+
+.languages {
+    opacity: 0.5;
+    font-size: 14px;    
+}
+
+
+.stats {
+    display: flex;
+    align-items: center;
+    div {
+        display: flex;
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+        img {
+            margin: 0;
+        }
+        span {
+            color: $typographic-base-font-color;
+            margin-left: 0.5rem;
+        }
+    }
+}

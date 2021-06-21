@@ -36,6 +36,14 @@ const createPages = async ({ graphql, actions }) => {
     path: '/blog',
     component: path.resolve('./src/templates/blog-template.js')
   });
+  createPage({
+    path: '/projects',
+    component: path.resolve('./src/templates/project-template.js')
+  });
+  createPage({
+    path: '/research',
+    component: path.resolve('./src/templates/project-template.js')
+  });
   
 
   // Posts and pages from markdown

@@ -1,0 +1,19 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+
+
+
+
+.card {
+  padding: 1rem;
+  background: $color-card-bg;
+  height: 100%;
+}
+
+.titlewrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
